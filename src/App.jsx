@@ -7,6 +7,7 @@ function App() {
   const [currentAccount, setCurrentAccount] = useState("");
 
   const [allHearts, setAllHearts] = useState([])
+  // console.log(allHearts)
   // state variable for message
   const [message, setMessage] = useState("")
   const contractAddress = "0xCae8513A029C8d5CBb495273a6B1EF4eCEEDa972"
@@ -138,8 +139,7 @@ function App() {
     getAllHearts()
     // console.log("hello")
     // setMessage("")
-  }, [allHearts])
-  
+  }, [allHearts/*allHearts*/])
   return (
 
 
@@ -150,7 +150,7 @@ function App() {
         </div>
 
         <div className="bio">
-          I am James. Show me some love by connecting your Ethereum wallet and sending me a sweet message and a heart!
+          I am James. Show me some love by connecting your Ethereum wallet and sending me a sweet message!
         </div>
 
         <form>
@@ -177,15 +177,19 @@ function App() {
           </button>
         )}
 
-        {allHearts.map((heart, index) => {
-          return (
-            <div key={index}>
-              <div>Address: {heart.address}</div>
-              <div>Time: {heart.timestamp.toString()}</div>
-              <div>Message: {heart.message}</div>
-            </div>
-          )
-        })}
+        <div className='messages'>
+          {allHearts.map((heart, index) => {
+            return (
+              <div key={index} className="message">
+                <div>Sender: {heart.address}</div>
+                <div>Time: {heart.timestamp.toString()}</div>
+                <div>Message: {heart.message}</div>
+              </div>
+            )
+          })}
+        </div>
+
+        
 
       </div>
     </div>
