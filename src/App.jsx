@@ -10,7 +10,7 @@ function App() {
   // console.log(allHearts)
   // state variable for message
   const [message, setMessage] = useState("")
-  const contractAddress = "0xCae8513A029C8d5CBb495273a6B1EF4eCEEDa972"
+  const contractAddress = "0xc1ce5B172Aed6AD030592445d29725030C4AD941"
 
   const contractABI = abi.abi;
 
