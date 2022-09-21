@@ -10,7 +10,7 @@ function App() {
   // console.log(allHearts)
   // state variable for message
   const [message, setMessage] = useState("")
-  const contractAddress = "0xc1ce5B172Aed6AD030592445d29725030C4AD941"
+  const contractAddress = "0xc27A027d725c20FbbB8c9aB2b5f38e0AA73A5A6A"
 
   const contractABI = abi.abi;
 
@@ -112,7 +112,7 @@ function App() {
             message: heart.message
           })
         })
-        setAllHearts(heartsCleaned)
+        setAllHearts(heartsCleaned) // this is the part that causes render loop
       } else {
         console.log("Ethereum object doesn't exist!")
       }
@@ -136,10 +136,10 @@ function App() {
   // }, [message])
 
   useEffect(() => {
-    getAllHearts()
-    // console.log("hello")
+    getAllHearts() // remove this because this changes the state
+    // console.log(allHearts)
     // setMessage("")
-  }, [allHearts/*allHearts*/])
+  }, [allHearts])
   return (
 
 
