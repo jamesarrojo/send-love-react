@@ -7,10 +7,51 @@
 .mainContainer {
   display: flex;
   justify-content: center;
+  /* width: 100%; */
+  padding-top: 64px;
+
+  font-family: 'Inter', sans-serif;
+  background: #f5f5f5;
+  min-height: 100vh;
+
+}
+
+.header {
+  font-weight: 700;
+  font-size: 3rem;
+  text-align: center;
 }
 
 .dataContainer {
-  width: 600px;
+  max-width: 600px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.bio {
+  text-align: center;
+  color: #2B283A;
+  margin: 16px 0;
+}
+
+textarea {
+  padding: 15px;
+  font-family: 'Inter', sans-serif;
+}
+
+.loveButton {
+  cursor: pointer;
+  margin-top: 16px;
+  padding: 8px;
+  border: 1px solid black;
+  border-radius: 5px;
+  max-width: 200px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
 }
 
 .messages {
@@ -21,4 +62,40 @@
 
 .message {
   margin-bottom: 20px;
+  display: flex;
+  border: 2px solid #4A4E74;
+  border-radius: 5px;
+  padding: 20px;
+  gap: 20px;
+  font-weight: 700;
+  
 }
+
+.message--sender > a {
+  display: block;
+  text-decoration: none;
+  width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+
+span {
+  display: block;
+}
+
+.message--time {
+  width: 200px;
+}
+
+.message--time > span {
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.message--text > span {
+  font-weight: 400;
+}
+

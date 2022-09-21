@@ -146,34 +146,34 @@ function App() {
     <div className="mainContainer">
       <div className="dataContainer">
         <div className="header">
-        👋 Hey there!
+        👋 Hey there! I'm James.
         </div>
 
         <div className="bio">
-          I am James. Show me some love by connecting your Ethereum wallet and sending me a sweet message!
+          I'm currently learning about blockchain development. Show me some love by connecting your Ethereum wallet and sending me a sweet message!
         </div>
 
-        <form>
+        {currentAccount && (<form>
           <textarea
             placeholder="Say something sweet"
             onChange={handleChange}
             name="message"
             value={message} 
-            cols="30" 
+            cols="50" 
             rows="10" 
           />
-        </form>
+        </form>)}
 
-        <button className="heartButton" onClick={heart}>
-          Send me some love
-        </button>
+        {currentAccount && (<button className="loveButton" onClick={heart}>
+          ❤️ Send me some love
+        </button>)}
 
         {/*
         * If there is no currentAccount render this button
         */}
         {!currentAccount && (
-          <button className="waveButton" onClick={connectWallet}>
-            Connect Wallet
+          <button className="loveButton" onClick={connectWallet}>
+            <img src="https://fellaz.xyz/img/icon-sign-metamask.ecf6606d.svg" alt="MetaMask Icon" />Connect Wallet
           </button>
         )}
 
@@ -181,9 +181,9 @@ function App() {
           {allHearts.map((heart, index) => {
             return (
               <div key={index} className="message">
-                <div>Sender: {heart.address}</div>
-                <div>Time: {heart.timestamp.toString()}</div>
-                <div>Message: {heart.message}</div>
+                <div className='message--sender'>Sender: <a href={`https://goerli.etherscan.io/address/${heart.address}`}>{heart.address}</a></div>
+                <div className='message--time'>Time: <span>{heart.timestamp.toString()}</span></div>
+                <div className='message--text'>Message: <span>{heart.message}</span></div>
               </div>
             )
           })}
